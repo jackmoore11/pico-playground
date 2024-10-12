@@ -11,7 +11,7 @@ pico_sdk_init()
 
 # The project
 add_executable(hello_world
-    hello_world.cpp
+    hello_world/hello_world.cpp
 )
 
 # Add pico_stdlib library which aggregates commonly used features
