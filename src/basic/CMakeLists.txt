@@ -1,0 +1,2 @@
+add_subdirectory(blink_simple)
+add_subdirectory(hello_world)

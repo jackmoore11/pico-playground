@@ -10,5 +10,4 @@ project(playground)
 pico_sdk_init()
 
 # The project
-add_subdirectory(hello_world)
-add_subdirectory(blink_simple)
+add_subdirectory(src)
