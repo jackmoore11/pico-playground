@@ -47,12 +47,12 @@ int main()
 
     while (true)
     {
-        for (int angle = 0; angle <= 180; ++angle)
+        for (int angle = (int)(MIN_ANGLE); angle <= (int)(MAX_ANGLE); ++angle)
         {
             position_servo((float)(angle));
         }
 
-        for (int angle = 180; angle >= 0; --angle)
+        for (int angle = (int)(MAX_ANGLE); angle >= (int)(MIN_ANGLE); --angle)
         {
             position_servo((float)(angle));
         }
