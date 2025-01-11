@@ -1,3 +1,4 @@
 add_subdirectory(hello_pwm)
 add_subdirectory(led_fade)
 add_subdirectory(measure_duty_cycle)
+add_subdirectory(sg90_test)
