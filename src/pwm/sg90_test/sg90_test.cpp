@@ -14,6 +14,7 @@ const float MIN_ANGLE = 0.0f;
 const float MAX_ANGLE = 180.0f;
 const float MIN_PULSE_WIDTH = 0.0005f;
 const float MAX_PULSE_WIDTH = 0.0025f;
+const float PERIOD = CLOCK_DIV * (float)TOP_COUNT / clock_get_hz(clk_sys);
 
 void position_servo(float angle)
 {
@@ -27,8 +28,7 @@ void position_servo(float angle)
     }
 
     float pulse_width = MIN_PULSE_WIDTH + angle / MAX_ANGLE * (MAX_PULSE_WIDTH - MIN_PULSE_WIDTH);
-    float period  = CLOCK_DIV * TOP_COUNT / clock_get_hz(clk_sys);
-    float duty_cycle = pulse_width / period;
+    float duty_cycle = pulse_width / PERIOD;
 
     printf("[%f %f %f]\n", angle, pulse_width, duty_cycle);
     pwm_set_gpio_level(OUTPUT_PIN, (uint16_t)(duty_cycle * (TOP_COUNT + 1)));
@@ -47,14 +47,14 @@ int main()
 
     while (true)
     {
-        for (int angle = (int)(MIN_ANGLE); angle <= (int)(MAX_ANGLE); ++angle)
+        for (int angle = (int)MIN_ANGLE; angle <= (int)MAX_ANGLE; ++angle)
         {
-            position_servo((float)(angle));
+            position_servo((float)angle);
         }
 
-        for (int angle = (int)(MAX_ANGLE); angle >= (int)(MIN_ANGLE); --angle)
+        for (int angle = (int)MAX_ANGLE; angle >= (int)MIN_ANGLE; --angle)
         {
-            position_servo((float)(angle));
+            position_servo((float)angle);
         }
     }
 }
