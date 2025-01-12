@@ -1,0 +1,2 @@
+add_subdirectory(simulated_register_read)
+add_subdirectory(uart_advanced)
